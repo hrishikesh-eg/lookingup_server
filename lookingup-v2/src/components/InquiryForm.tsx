@@ -22,7 +22,7 @@ const initialState: FormState = {
   productInquiry: "",
 };
 
-const API_URL = "http://127.0.0.1:8000/api/inquiry";
+const API_URL = import.meta.env.VITE_API_URL;
 // Slightly reduced vertical padding (py-2 instead of py-3) to save heights
 const inputClass =
   "w-full rounded-lg border border-slate-200 bg-slate-50/50 py-2 pl-10 pr-3 text-sm text-slate-900 transition-all duration-200 placeholder:text-slate-400 placeholder:truncate focus:border-teal-600 focus:bg-white focus:outline-none focus:ring-2 focus:ring-teal-500/10 hover:border-slate-300";
