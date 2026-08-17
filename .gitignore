@@ -1,0 +1,17 @@
+# Backend
+env/
+lookingup_b/env/
+lookingup_b/__pycache__/
+lookingup_b/*.pyc
+lookingup_b/.env
+
+# Frontend
+node_modules/
+lookingup-v2/node_modules/
+lookingup-v2/dist/
+lookingup-v2/.env
+
+# General
+.env
+__pycache__/
+*.pyc

@@ -1,0 +1,26 @@
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+APP_NAME = os.getenv("APP_NAME", "LookingUp Backend")
+APP_VERSION = os.getenv("APP_VERSION", "1.0.0")
+
+DATABASE_URL = os.getenv("DATABASE_URL")
+
+WHATSAPP_TOKEN = os.getenv("WHATSAPP_TOKEN")
+PHONE_NUMBER_ID = os.getenv("PHONE_NUMBER_ID")
+
+GOOGLE_SHEET_ID = os.getenv("GOOGLE_SHEET_ID")
+
+WHATSAPP_ACCESS_TOKEN = os.getenv("WHATSAPP_ACCESS_TOKEN")
+WHATSAPP_PHONE_NUMBER_ID = os.getenv("WHATSAPP_PHONE_NUMBER_ID")
+WHATSAPP_BUSINESS_ACCOUNT_ID = os.getenv("WHATSAPP_BUSINESS_ACCOUNT_ID")
+WHATSAPP_API_VERSION = os.getenv("WHATSAPP_API_VERSION", "v25.0")
+
+SMTP_HOST = os.getenv("SMTP_HOST")
+SMTP_PORT = int(os.getenv("SMTP_PORT", 587))
+SMTP_USERNAME = os.getenv("SMTP_USERNAME")
+SMTP_PASSWORD = os.getenv("SMTP_PASSWORD")
+
+ADMIN_EMAIL = os.getenv("ADMIN_EMAIL")
