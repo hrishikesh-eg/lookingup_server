@@ -4,7 +4,6 @@ import { upcomingExhibitions } from "@/data/upcomingExhibitions";
 
 const AUTO_ADVANCE_MS = 6000;
 
-
 export function ExhibitionCarousel() {
   const [index, setIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
@@ -62,6 +61,9 @@ export function ExhibitionCarousel() {
     >
       <div className="relative h-full w-full">
         {slides.map((slide, i) => {
+          // Wrap with button IF client paid for promo page, otherwise wrap with plain div
+          const SlideWrapper = slide.hasPromoPage ? "button" : "div";
+
           return (
             <div
               key={slide.id}
@@ -70,11 +72,17 @@ export function ExhibitionCarousel() {
               }`}
               aria-hidden={i !== index}
             >
-              <button
-                type="button"
-                onClick={() => navigate("/promo")}
-                aria-label={slide.title}
-                className="group block h-full w-full text-left"
+              <SlideWrapper
+                {...(slide.hasPromoPage
+                  ? {
+                      type: "button",
+                      onClick: () => navigate("/promo"),
+                      "aria-label": slide.title,
+                    }
+                  : {})}
+                className={`group block h-full w-full text-left ${
+                  slide.hasPromoPage ? "cursor-pointer" : "cursor-default"
+                }`}
               >
                 {slide.desktopImage ? (
                   <picture>
@@ -90,7 +98,9 @@ export function ExhibitionCarousel() {
                 ) : (
                   <div className="flex h-full w-full flex-col items-center justify-center gradient-teal p-4 text-center">
                     <p className="eyebrow text-gold/80 mb-2.5">Upcoming Exhibition</p>
-                    <h2 className="font-display max-w-lg text-paper text-xl sm:text-2xl">{slide.title}</h2>
+                    <h2 className="font-display max-w-lg text-paper text-xl sm:text-2xl">
+                      {slide.title}
+                    </h2>
                     {slide.dateLabel && (
                       <p className="mt-3.5 text-sm text-teal-soft">
                         {slide.location ? `${slide.location} · ` : ""}
@@ -101,16 +111,17 @@ export function ExhibitionCarousel() {
                   </div>
                 )}
 
-                {/* Visual cue only - whole banner is already clickable via
-                    the parent button, this just makes that obvious */}
-                <span className="absolute bottom-5 right-5 z-10 inline-flex items-center gap-2 rounded-full border border-gold/40 bg-teal-deep/80 px-5 py-2.5 text-sm font-semibold uppercase tracking-wider text-paper shadow-teal backdrop-blur-md transition-transform duration-300 group-hover:scale-110">
-                  <span className="relative flex h-2 w-2">
-                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-gold opacity-75" />
-                    <span className="relative inline-flex h-2 w-2 rounded-full bg-gold" />
+                {/* Show "View →" button badge ONLY if this slide has a promo page */}
+                {slide.hasPromoPage && (
+                  <span className="absolute bottom-5 right-5 z-10 inline-flex items-center gap-2 rounded-full border border-gold/40 bg-teal-deep/80 px-5 py-2.5 text-sm font-semibold uppercase tracking-wider text-paper shadow-teal backdrop-blur-md transition-transform duration-300 group-hover:scale-110">
+                    <span className="relative flex h-2 w-2">
+                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-gold opacity-75" />
+                      <span className="relative inline-flex h-2 w-2 rounded-full bg-gold" />
+                    </span>
+                    View <span aria-hidden>→</span>
                   </span>
-                  View <span aria-hidden>→</span>
-                </span>
-              </button>
+                )}
+              </SlideWrapper>
             </div>
           );
         })}

@@ -76,7 +76,7 @@ export default function ProductPage() {
 
       {showInquiry && (
         <InquiryModal
-          customer={{ name: product.companyName }}
+          customer={{ name: product.companyName,email: product.companyEmail }}
           product={{ name: product.productName }}
           onClose={() => setShowInquiry(false)}
         />

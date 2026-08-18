@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
-import { EMAILJS_CONFIG } from "@/data/emailjsConfig";
+
 
 const INITIAL = { name: "", company: "", email: "", phone: "", message: "" };
 
@@ -9,7 +8,7 @@ export function InquiryModal({
   product,
   onClose,
 }: {
-  customer: { name: string };
+  customer: { name: string,email: string; };
   product: { name: string };
   onClose: () => void;
 }) {
@@ -32,34 +31,58 @@ export function InquiryModal({
     setForm((p) => ({ ...p, [e.target.name]: e.target.value }));
   };
 
-  const submit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
-      setStatus("error");
-      return;
-    }
-    setStatus("sending");
+ const submit = async (e: React.FormEvent) => {
+  e.preventDefault();
 
-    const templateParams = {
-      company_name: customer.name,
-      product_name: product.name,
-      from_name: form.name,
-      from_company: form.company || "Not provided",
-      from_email: form.email,
-      from_phone: form.phone || "Not provided",
-      message: form.message,
-    };
+  if (
+    !form.name.trim() ||
+    !form.email.trim() ||
+    !form.message.trim()
+  ) {
+    setStatus("error");
+    return;
+  }
 
-    try {
-      await emailjs.send(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateId, templateParams, {
-        publicKey: EMAILJS_CONFIG.publicKey,
-      });
-      setStatus("success");
-    } catch (err) {
-      console.error("EmailJS send failed:", err);
-      setStatus("error");
+  setStatus("sending");
+
+  try {
+    const response = await fetch(
+      "https://lookingupbusinesssolutions.com/api/product-inquiry",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          company_name: customer.name,
+          company_email: customer.email,
+          product_name: product.name,
+
+          customer_name: form.name,
+          customer_company: form.company || "Not provided",
+          customer_email: form.email,
+          customer_phone: form.phone || "Not provided",
+
+          message: form.message,
+        }),
+      }
+    );
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => null);
+
+      console.error("Backend inquiry error:", errorData);
+
+      throw new Error("Failed to send inquiry");
     }
-  };
+
+    setStatus("success");
+
+  } catch (err) {
+    console.error("Inquiry send failed:", err);
+    setStatus("error");
+  }
+};
 
   return (
     <div

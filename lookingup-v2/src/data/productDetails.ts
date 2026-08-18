@@ -40,6 +40,7 @@ import capfill from "../assets/productimages/capfill.jpg"
 export interface ProductDetail {
   id: string;
   companyName: string;
+  companyEmail: string,
   productName: string;
   image?: string;
   imageType?: "product" | "magazine";
@@ -50,6 +51,7 @@ export const productDetails: ProductDetail[] = [
   {
     id: "stability-chamber",
     companyName: "Erfolgganar Pvt. Ltd.",
+    companyEmail: "sales@erfolgganar.com",
     productName: "Stability Test Chamber",
     image:stb,
     description:
@@ -58,6 +60,7 @@ export const productDetails: ProductDetail[] = [
   {
     id: "walk-in-chamber",
     companyName: "Erfolgganar Pvt. Ltd.",
+    companyEmail: "sales@erfolgganar.com",
     productName: "Walk-In Stability Chamber",
     image:stb,
     description:
@@ -66,6 +69,7 @@ export const productDetails: ProductDetail[] = [
   {
     id: "gear-coupling-emco",
     companyName: "Emco Engineering Pvt. Ltd",
+    companyEmail: "info@airjetmaill.com",
     productName: "Export-Grade Crating",
     image:emco,
     imageType: "magazine",
@@ -74,6 +78,7 @@ export const productDetails: ProductDetail[] = [
   {
   id: "auto-capsule-filling-captech",
   companyName: "Captech Systems",
+  companyEmail: "info@captech.in",
   image:captech,
   imageType: "magazine",
   productName: "Automatic Capsule Filling Machine",
@@ -82,6 +87,7 @@ export const productDetails: ProductDetail[] = [
   {
   id: "silicone-tubes-asv",
   companyName: "Asv Pharma Corporate Pvt. Ltd",
+  companyEmail :"asvsalescorporation@gmail.com",
   image:asv,
   imageType: "magazine",
   productName: "Platinum Cured Silicone Tubes",
@@ -90,6 +96,7 @@ export const productDetails: ProductDetail[] = [
   {
   id: "modular-ot-almed",
   companyName: "Almed Equipments",
+  companyEmail: "almedequip@gmail.com",
   image:amed,
   imageType: "magazine",
   productName: "Modular Operation Theatre",
@@ -98,6 +105,7 @@ export const productDetails: ProductDetail[] = [
   {
   id: "cap-tab-150-vms",
   companyName: "V. M Services",
+  companyEmail:"vmservices2003@yahoo.com",
   image:vm,
   imageType: "magazine",
   productName: "CAP-TAB-150 Blister Packing Machine",
@@ -106,6 +114,7 @@ export const productDetails: ProductDetail[] = [
   {
   id: "rapid-mixer-granulator-alpro",
   companyName: "Alpro Equipment & Technologies",
+  companyEmail: "info@alproequipment.com",
   image:alp,
   imageType: "magazine",
   productName: "Rapid Mixer Granulator",
@@ -114,6 +123,7 @@ export const productDetails: ProductDetail[] = [
   {
   id: "punches-dies-shraddha",
   companyName: "Shraddha Industries",
+  companyEmail:"vishesh@shraddha-industries.com",
   image:shrd,
   imageType: "magazine",
   productName: "Tablet Compression Tooling - Punches & Dies",
@@ -122,6 +132,7 @@ export const productDetails: ProductDetail[] = [
   {
   id: "octagonal-blender-cappro",
   companyName: "Cappro Equipment",
+  companyEmail: "capproequipement@hotmail.com",
   image:cap,
   imageType: "magazine",
   productName: "Octagonal Blender",
@@ -130,6 +141,7 @@ export const productDetails: ProductDetail[] = [
 {
   id: "hanfure-tubing-polyanh",
   companyName: "Polyanh Polymers and Industries Pvt. Ltd",
+  companyEmail:"sales.polyanh@gmail.com",
   image:pol,
   imageType: "magazine",
   productName: "Hanfure Silicone Tubing",
@@ -139,6 +151,7 @@ export const productDetails: ProductDetail[] = [
 {
   id: "vertical-autoclave-arti",
   companyName: "Arti Surgicals",
+  companyEmail: "artisurgicals@gmail.com",
   image:arti,
   imageType: "magazine",
   productName: "Vertical Autoclave",
@@ -147,6 +160,7 @@ export const productDetails: ProductDetail[] = [
 {
   id: "static-pass-box-rair",
   companyName: "R Air Clean Pharma Equipment",
+  companyEmail:"raircleanp@gmail.com",
   image:rair,
   imageType: "magazine",
   productName: "Static Pass Box",
@@ -155,6 +169,7 @@ export const productDetails: ProductDetail[] = [
 {
   id: "hydrogen-gas-generator-pci",
   companyName: "Pci Analytics Pvt. Ltd",
+  companyEmail: "info@pcianalytics.in",
   image:pci,
   imageType: "magazine",
   productName: "Hydrogen Gas Generator",
@@ -163,6 +178,7 @@ export const productDetails: ProductDetail[] = [
 {
   id: "high-shear-emulsifier-shashvath",
   companyName: "Shashvath Fabrication and Engineers",
+  companyEmail:"shashvathfabandengg@gmail.com",
   image:sh,
   imageType: "magazine",
   productName: "High Shear Emulsifier & Inline Homogenizer",
@@ -171,6 +187,7 @@ export const productDetails: ProductDetail[] = [
 {
   id: "vial-inspection-shreeji",
   companyName: "Shreeji Pharmatech",
+  companyEmail: "mitesh@shreejiphrmatech.com",
   image:shreeji,
   imageType: "magazine",
   productName: "Fully Automatic Camera-Based Vial Inspection Machine",
@@ -179,6 +196,7 @@ export const productDetails: ProductDetail[] = [
 {
   id: "hepa-filter-clamp-rjpal",
   companyName: "R. J Pal Steel",
+  companyEmail:"rjpalsteel@gmail.com",
   image:rj,
   imageType: "magazine",
   productName: "SS HEPA Filter Clamp",
@@ -187,6 +205,7 @@ export const productDetails: ProductDetail[] = [
 {
   id: "turnkey-cleanroom-innixi",
   companyName: "Innixi Solutions",
+  companyEmail: "sales@innixisolutions.com",
   image:innix,
   imageType: "magazine",
   productName: "Turnkey Clean Room Solutions",
@@ -195,6 +214,7 @@ export const productDetails: ProductDetail[] = [
 {
   id: "alu-alu-format-parts-ved",
   companyName: "Ved Enterprise",
+  companyEmail:"info@vedentp.com",
   image:ved,
   imageType: "magazine",
   productName: "Alu-Alu Blister Format Change Parts",
@@ -203,6 +223,7 @@ export const productDetails: ProductDetail[] = [
 {
   id: "rapid-mixer-granulator-pal",
   companyName: "Paal Pharma Machinery",
+  companyEmail: "sales@palpharmamachinery.com",
   image:pal,
   imageType: "magazine",
   productName: "Rapid Mixer Granulator",
@@ -211,6 +232,7 @@ export const productDetails: ProductDetail[] = [
 {
   id: "wfi-distribution-jnd",
   companyName: "JND Engineering Services",
+  companyEmail:"jndengineering.nirav@gmail.com",
   image:jnd,
   imageType: "magazine",
   productName: "WFI Distribution Loop System",
@@ -219,6 +241,7 @@ export const productDetails: ProductDetail[] = [
 {
   id: "round-shape-toolings-jayshree",
   companyName: "Jayshree Tablet Compression Toolings",
+  companyEmail: "jayshreetabletting@gmail.com",
   image:jbs,
   imageType: "magazine",
   productName: "Round Shape Tablet Toolings",
@@ -227,6 +250,7 @@ export const productDetails: ProductDetail[] = [
 {
   id: "lab-fume-hood-joyous",
   companyName: "Joyous Inc",
+  companyEmail: "inquiry@joyousinc.im",
   image:joy,
   imageType: "magazine",
   productName: "Lab Fume Hood",
@@ -235,6 +259,7 @@ export const productDetails: ProductDetail[] = [
 {
   id: "ceramic-pump-navdurga",
   companyName: "Nav Durga Engineers",
+  companyEmail:"info@ndengineers.com",
   image:nd,
   imageType: "magazine",
   productName: "Pharmaceutical Ceramic Pump for Sterile Aseptic Filling",
@@ -243,6 +268,7 @@ export const productDetails: ProductDetail[] = [
 {
   id: "loading-rings-capfill",
   companyName: "Capfill Technologies",
+  companyEmail: "capfill.tech@gmail.com",
   image:capfill,
   imageType: "magazine",
   productName: "Loading Rings & Pin Plates",

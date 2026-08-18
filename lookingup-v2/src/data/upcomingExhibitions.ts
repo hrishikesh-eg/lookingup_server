@@ -1,6 +1,6 @@
 import amptechDesktop from "@/assets/banners/amptech-desktop.webp";
 import amptechMobile from "@/assets/banners/amptech-mobile.webp";
-
+import bharat from "@/assets/banners/bharat.webp"
 /**
  * UPCOMING EXHIBITIONS DATA — navbar carousel banner
  * ---------------------------------------------------------
@@ -31,6 +31,7 @@ export interface UpcomingExhibition {
   ctaHref?: string;
   desktopImage?: string;
   mobileImage?: string;
+  hasPromoPage?: boolean;
 }
 
 export const upcomingExhibitions: UpcomingExhibition[] = [
@@ -42,5 +43,15 @@ export const upcomingExhibitions: UpcomingExhibition[] = [
     ctaHref: "#contact",
     desktopImage: amptechDesktop,
     mobileImage: amptechMobile,
+    hasPromoPage: true,
+  },
+
+  {
+    id:"bharat-health",
+    title:"bharat health machine",
+    location:"delhi",
+    dateLabel:"17–19 December 2026",
+    desktopImage: bharat,
+    hasPromoPage: false,
   },
 ];

@@ -40,3 +40,4 @@ def create_inquiry(db: Session, inquiry: InquiryCreate):
     )
 
     return db_inquiry
+

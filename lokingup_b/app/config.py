@@ -24,3 +24,4 @@ SMTP_USERNAME = os.getenv("SMTP_USERNAME")
 SMTP_PASSWORD = os.getenv("SMTP_PASSWORD")
 
 ADMIN_EMAIL = os.getenv("ADMIN_EMAIL")
+
