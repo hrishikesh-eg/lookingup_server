@@ -172,7 +172,14 @@ export function Clients() {
       </div>
 
       {inquiry && (
-        <InquiryModal customer={inquiry.customer} product={inquiry.product} onClose={() => setInquiry(null)} />
+        <InquiryModal 
+  customer={{
+    name: inquiry.customer.name,
+    email: inquiry.customer.email ?? ""
+  }} 
+  product={inquiry.product} 
+  onClose={() => setInquiry(null)} 
+/>
       )}
     </section>
   );
