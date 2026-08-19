@@ -32,12 +32,7 @@ def create_inquiry(db: Session, inquiry: InquiryCreate):
     db.commit()
     db.refresh(db_inquiry)
 
-    # Send WhatsApp
-    send_whatsapp_message(
-        to_number=inquiry.mobile_no,
-        customer_name=inquiry.person_name,
-        company_name=inquiry.company_name,
-    )
+    
 
     return db_inquiry
 
