@@ -26,27 +26,36 @@ def send_whatsapp_message(to_number: str, customer_name: str):
     }
 
     # 2. Use your real catalogue template and insert the customer's name
+    # payload = {
+    #     "messaging_product": "whatsapp",
+    #     "to": formatted_phone,
+    #     "type": "template",
+    #     "template": {
+    #         "name": "catalogue_website",  
+    #         "language": {"code": "en"},
+    #         "components": [
+    #             {
+    #                 "type": "body",
+    #                 "parameters": [
+    #                     {
+    #                         "type": "text",
+    #                         "text": customer_name
+    #                     }
+    #                 ]
+    #             }
+    #         ]
+    #     },
+    # }
+    # 2. Use the hello_world template for testing (NO components allowed!)
     payload = {
         "messaging_product": "whatsapp",
         "to": formatted_phone,
         "type": "template",
         "template": {
-            "name": "catalogue_website",  
-            "language": {"code": "en"},
-            "components": [
-                {
-                    "type": "body",
-                    "parameters": [
-                        {
-                            "type": "text",
-                            "text": customer_name
-                        }
-                    ]
-                }
-            ]
-        },
+            "name": "hello_world",  
+            "language": {"code": "en_US"}
+        }
     }
-
     try:
         response = requests.post(
             url=url,
